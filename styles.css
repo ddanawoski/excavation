@@ -1,0 +1,58 @@
+body,
+html,
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    /* background: #EAEDF2; */
+}
+
+.radios span {
+    font-size: 24px;
+}
+
+.input-fields .field {
+    margin: 15px 0;
+}
+
+.input-fields strong {
+    margin-bottom: 7px;
+}
+
+.submitBtn button {
+    background: #973D3C;
+    width: 250px;
+    padding: 12px 0;
+    border-radius: .7rem;
+    margin-top: 30px;
+}
+
+.drawnImg {}
+
+#canvas {
+    border: 1px solid;
+    margin-top: 20px;
+    background: white;
+}
+
+
+/* input[name=soilType] {
+    display: none
+}
+
+.radios label {
+    cursor: pointer;
+    width: 163px;
+    background: #2C3C70;
+    border-radius: 0.7rem;
+    padding: 6px 0px;
+    color: white;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.radios input[type="radio"]:checked+label {
+    background: #9A733A;
+} */
