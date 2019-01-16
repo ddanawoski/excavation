@@ -41,6 +41,20 @@ console.log(rightMiddlePoint);
         drawMainLine(trenchTopWidth);
         processImg()
     })
+
+
+    $('.radios .row .col label').on('click', function(ev) {
+        if(ev.target.tagName === 'SPAN') {
+            if ($(ev.target).prev().is(':checked') === false) {
+                $('.radios .row .col label span').removeClass('radio-active');
+                $('input[type="radio"]').attr('checked', false);
+                $(ev.target).prev().attr('checked', true);
+                $(ev.target).addClass('radio-active');
+            }
+        }
+    });
+
+
 })(jQuery);
 
 function processImg() {
@@ -208,7 +222,7 @@ function calculateWidth(type, width, depth) {
             return (width + (2 * (1 * depth)));
             break;
         case 'C':
-            pixelRelitivity = 6.5;
+            pixelRelitivity = 11.5;
             return (width + (2 * (1.5 * depth)));
             break;
         default:
@@ -308,7 +322,7 @@ function line_arrow(fromx, fromy, tox, toy, r) {
 }
 
 function processX() {
-    // See my tech blog at http://tech.scargill.net
+    // See my tech blog at http://tech.scargill.net 
     // Very simple example of getting mouse information from an HTML5 canvas for gauges etc.
     // values returned include degrees, x and y and finally distance from centre of the canvas
 
