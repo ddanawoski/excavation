@@ -41,20 +41,6 @@ console.log(rightMiddlePoint);
         drawMainLine(trenchTopWidth);
         processImg()
     })
-
-
-    $('.radios .row .col label').on('click', function(ev) {
-        if(ev.target.tagName === 'SPAN') {
-            if ($(ev.target).prev().is(':checked') === false) {
-                $('.radios .row .col label span').removeClass('radio-active');
-                $('input[type="radio"]').attr('checked', false);
-                $(ev.target).prev().attr('checked', true);
-                $(ev.target).addClass('radio-active');
-            }
-        }
-    });
-
-
 })(jQuery);
 
 function processImg() {
@@ -222,7 +208,7 @@ function calculateWidth(type, width, depth) {
             return (width + (2 * (1 * depth)));
             break;
         case 'C':
-            pixelRelitivity = 11.5;
+            pixelRelitivity = 6.5;
             return (width + (2 * (1.5 * depth)));
             break;
         default:
