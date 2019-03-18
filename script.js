@@ -31,6 +31,8 @@ console.log(rightMiddlePoint);
         const soilType = formArr[0]['value'];
         const depth = parseFloat(formArr[1]['value']);
         const width = parseFloat(formArr[2]['value']);
+        const length = parseFloat(formArr[3]['value']);
+
         const trenchTopWidth = calculateWidth(soilType, width, depth);
         console.log(trenchTopWidth);
         $('.drawnImg').empty().append(`<canvas id="canvas" width=600 height=460></canvas>`);
@@ -39,7 +41,8 @@ console.log(rightMiddlePoint);
         drawBottomWidth(width, depth);
         drawOuterWidthBoundry(width, depth, trenchTopWidth);
         drawMainLine(trenchTopWidth);
-        processImg()
+        processImg();
+        updateTable(soilType, depth, width, length);
     })
 })(jQuery);
 
@@ -69,10 +72,10 @@ function renderCanvas() {
         y: Math.floor((bound.y1 + bound.y2) / 2)
     }
     rightMiddlePoint = {
-            x: Math.floor((bound.x2 + bound.x2) / 2),
-            y: Math.floor((bound.y1 + bound.y2) / 2)
-        }
-        //drawCanvasBoundry();
+        x: Math.floor((bound.x2 + bound.x2) / 2),
+        y: Math.floor((bound.y1 + bound.y2) / 2)
+    }
+    //drawCanvasBoundry();
     drawMiddleHorizontalLine();
 }
 
@@ -208,7 +211,7 @@ function calculateWidth(type, width, depth) {
             return (width + (2 * (1 * depth)));
             break;
         case 'C':
-            pixelRelitivity = 6.5;
+            pixelRelitivity = 11.5;
             return (width + (2 * (1.5 * depth)));
             break;
         default:
@@ -308,7 +311,7 @@ function line_arrow(fromx, fromy, tox, toy, r) {
 }
 
 function processX() {
-    // See my tech blog at http://tech.scargill.net 
+    // See my tech blog at http://tech.scargill.net
     // Very simple example of getting mouse information from an HTML5 canvas for gauges etc.
     // values returned include degrees, x and y and finally distance from centre of the canvas
 
@@ -374,4 +377,52 @@ function processX() {
         ctx2.fillText("Mouse= " + pos + " degrees. (" + m.x + "x," + m.y + "y)" + " Dist; " + tD + "px", cX, 30);
     }, false);
 
+}
+
+function updateTable(typeofsoil, depth, width, length) {
+    var baseLengthSlope = 0;
+    if (typeofsoil == 'A') {
+        $("#slopeNum").html('&#190;');
+        $("#slopeAngle").html('53');
+        baseLengthSlope = .75 * depth;
+    }
+    if (typeofsoil == 'B') {
+        $("#slopeNum").html('1');
+        $("#slopeAngle").html('45');
+        baseLengthSlope = 1 * depth;
+    }
+    if (typeofsoil == 'C') {
+        $("#slopeNum").html('1 &#189;');
+        $("#slopeAngle").html('34');
+        baseLengthSlope = 1.5 * depth;
+    }
+
+    var cubicYardsShield = Math.ceil((depth * width * length) / 27);
+    var cubicYardsSlope = cubicYardsShield + Math.ceil((baseLengthSlope * depth * length) / 27);
+
+
+    var totalWidthSlope = addCommas(width + baseLengthSlope);
+    var totalWidthShield = addCommas(width);
+    $("#trenchWidthSlope").html(totalWidthSlope);
+    $("#trenchWidthShield").html(totalWidthShield);
+
+    cubicYardsShield = addCommas(cubicYardsShield);
+    cubicYardsSlope = addCommas(cubicYardsSlope);
+    $(".cubicYardsShield").html(cubicYardsShield);
+    $("#cubicYardsSlope").html(cubicYardsSlope);
+
+    $("#comparison-data").show();
+
+}
+
+function addCommas(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
 }
