@@ -37,6 +37,11 @@ html,
     background: white;
 }
 
+.bg-blue{
+    background-color: #2c3b70;
+    color: #fff;
+}
+
 
 /* input[name=soilType] {
     display: none
