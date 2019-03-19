@@ -80,9 +80,3 @@ html,
 .radios input[type="radio"]:checked+label {
     background: #9A733A;
 } */
-
-#canvas {
-    border: 1px solid;
-    margin-top: 20px;
-    background: white;
-}
