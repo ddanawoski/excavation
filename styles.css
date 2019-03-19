@@ -19,10 +19,11 @@ html,
 
 .input-fields strong {
     margin-bottom: 7px;
+    color: #2c3b70 !important;
 }
 
 .submitBtn button {
-    background: #973D3C;
+    background:  #7a211f;
     width: 250px;
     padding: 12px 0;
     border-radius: .7rem;
@@ -36,12 +37,30 @@ html,
     margin-top: 20px;
     background: white;
 }
-
-.bg-blue{
-    background-color: #2c3b70;
+.radios .row .col label {
+	width: 100%;
+    /*max-width: 100%;
     color: #fff;
+    min-width: 70%;*/
 }
-
+.radios .row .col label span {
+    color: #fff;
+    background-color: #2c3b70;
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    max-width: 70%;
+    border-radius: 7px;
+}
+.radios .row .col label input[name="soilType"] {
+	display: none;
+}
+#slopeForm .radios.position-relative {
+    margin-top: 25px;
+}
+.radio-active {
+	background-color: #997339 !important;
+}
 
 /* input[name=soilType] {
     display: none
@@ -61,3 +80,9 @@ html,
 .radios input[type="radio"]:checked+label {
     background: #9A733A;
 } */
+
+#canvas {
+    border: 1px solid;
+    margin-top: 20px;
+    background: white;
+}
