@@ -45,7 +45,16 @@ console.log(rightMiddlePoint);
         updateTable(soilType, depth, width, length);
     })
 })(jQuery);
-
+$('.radios .row .col label').on('click', function(ev) {
+        if(ev.target.tagName === 'SPAN') {
+            if ($(ev.target).prev().is(':checked') === false) {
+                $('.radios .row .col label span').removeClass('radio-active');
+                $('input[type="radio"]').attr('checked', false);
+                $(ev.target).prev().attr('checked', true);
+                $(ev.target).addClass('radio-active');
+            }
+        }
+    });
 function processImg() {
     const a = new Image();
     $('.drawnImg').addClass('d-none');
