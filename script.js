@@ -220,7 +220,7 @@ function calculateWidth(type, width, depth) {
             return (width + (2 * (1 * depth)));
             break;
         case 'C':
-            pixelRelitivity = 11.5;
+            pixelRelitivity = 6.5;
             return (width + (2 * (1.5 * depth)));
             break;
         default:
