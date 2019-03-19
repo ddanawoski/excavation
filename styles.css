@@ -47,7 +47,7 @@ html,
     color: #fff;
     background-color: #2c3b70;
     display: block;
-    padding: 20px;
+    padding: 20px !important;
     cursor: pointer;
     border-radius: 7px;
 }
