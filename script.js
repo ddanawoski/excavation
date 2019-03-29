@@ -393,12 +393,12 @@ function updateTable(typeofsoil, depth, width, length) {
     if (typeofsoil == 'A') {
         $("#slopeNum").html('&#190;');
         $("#slopeAngle").html('53');
-        baseLengthSlope = .75 * depth;
+        baseLengthSlope = (.75 * depth);
     }
     if (typeofsoil == 'B') {
         $("#slopeNum").html('1');
         $("#slopeAngle").html('45');
-        baseLengthSlope = 1 * depth;
+        baseLengthSlope = (1 * depth);
     }
     if (typeofsoil == 'C') {
         $("#slopeNum").html('1 &#189;');
@@ -410,7 +410,7 @@ function updateTable(typeofsoil, depth, width, length) {
     var cubicYardsSlope = cubicYardsShield + Math.ceil((baseLengthSlope * depth * length) / 27);
 
 
-    var totalWidthSlope = addCommas(width + baseLengthSlope);
+    var totalWidthSlope = addCommas(width + 2*baseLengthSlope);
     var totalWidthShield = addCommas(width);
     $("#trenchWidthSlope").html(totalWidthSlope);
     $("#trenchWidthShield").html(totalWidthShield);
