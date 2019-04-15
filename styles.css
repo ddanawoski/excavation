@@ -80,7 +80,7 @@ html,
     margin: 0 5px;
 }
 input:invalid {
-border-color: red;	
+border-color: red !important;	
 }
 .radios input[type="radio"]:checked+label {
     background: #9A733A;
