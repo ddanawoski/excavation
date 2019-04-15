@@ -79,9 +79,10 @@ html,
     font-size: 18px;
     margin: 0 5px;
 }
-input:invalid {
-border-color: red !important;	
-}
+
 .radios input[type="radio"]:checked+label {
     background: #9A733A;
 } */
+input:invalid {
+border-color: red;	
+}
